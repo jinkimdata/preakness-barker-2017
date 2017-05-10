@@ -5,67 +5,61 @@
 //- There are two datalink variables so I don't have to rewrite the link every time. 
 //- The second datalink variable declaration overwrites the first one. 
 //- When I want to switch to my server assets, I comment out the second declaration.
-- var datalink = "http://data.baltimoresun.com/jin/p2p/preakness-2017"
-//- - var datalink = ""
+- var datalink = "http://data.baltimoresun.com/jin/p2p/preakness-2017/"
+- var datalink = ""
 
 include includes/data.pug
 
-doctype html
-//if lt IE 7
-	<html class="no-js lt-ie9 lt-ie8 lt-ie7">
-//if IE 7
-	<html class="no-js lt-ie9 lt-ie8">
-//if IE 8
-	<html class="no-js lt-ie9">
-html(class="no-js", lang="en")
-	head
-		//Basic page needs
-		meta(charset="utf-8")
-		title
-		meta(name="description", content="")
-		meta(name="author", content="") 
-		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
-		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Old+Standard+TT|Lato|Montserrat")
-		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
-		link(rel="stylesheet", type="text/css", href=datalink + "css/style.css")
-	body
-		.container
-			.contenders
-				for contender, index in data
-					.contenders__card(class="contenders__card--"+index)
-						.contenders__card__detail.contenders__card__detail--namePlate
-							p.pp 
-								span PP 
-								span.ppNum #{contender.pp}
-							p.horse
-								span #{contender.horse}
-						.contenders__card__detail.contenders__card__detail--odds
-							p.odds Odds
-							p.oddsNum #{contender.odds}
-						.contenders__card__detail.contenders__card__detail--bio
-							p.bioSubject Jockey
-							p.bioContent #{contender.jockey}
-							p.bioSubject Owner
-							p.bioContent #{contender.owner}
-							p.bioSubject Trainer
-							p.bioContent #{contender.trainer}
-							p.bioSubject Breeding
-							p.bioContent
-								span Dam: 
-								| #{contender.dam}
-							p.bioContent
-								span Sire: 
-								| #{contender.sire}
-						.contenders__card__detail.contenders__card__detail--notes
-							p Prev. Start: 
-								span  #{contender.prevStart}
-							p Earnings: 
-								span  #{contender.earnings}
-			.sliderButton.sliderButton--next 
-				i.fa.fa-chevron-right(aria-hidden="true")
 
-		//Javascript
-		//- MAKE SURE TO CHECK OUT package.json and look at the uglify script. 
-		script(src=datalink + "js/min/jquery-3.0.0.min.js")
-		script(src=datalink + "js/app.js")
-		//- script(src=datalink + "js/app.min.js")
+body
+	link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Old+Standard+TT|Lato|Montserrat")
+	link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+	link(rel="stylesheet", type="text/css", href=datalink + "css/style.css")
+	.container
+		.contenders
+			.contenders__card.contenders__card--title.contenders__card--0
+				.contenders__card--title__detail.contenders__card--title__detail--logo
+					img(src=datalink + "images/preakness_logo.png")
+				.contenders__card--title__detail.contenders__card--title__detail--headline
+					h1 
+						span Preakness 
+						span contenders 
+						span 2017
+			for contender, index in data
+				.contenders__card(class="contenders__card--"+(index+1))
+					.contenders__card__detail.contenders__card__detail--namePlate
+						p.pp 
+							span PP 
+							span.ppNum #{contender.pp}
+						p.horse
+							span #{contender.horse}
+					.contenders__card__detail.contenders__card__detail--odds
+						p.odds Odds
+						p.oddsNum #{contender.odds}
+					.contenders__card__detail.contenders__card__detail--bio
+						p.bioSubject Jockey
+						p.bioContent #{contender.jockey}
+						p.bioSubject Owner
+						p.bioContent #{contender.owner}
+						p.bioSubject Trainer
+						p.bioContent #{contender.trainer}
+						p.bioSubject Breeding
+						p.bioContent
+							span Dam: 
+							| #{contender.dam}
+						p.bioContent
+							span Sire: 
+							| #{contender.sire}
+					.contenders__card__detail.contenders__card__detail--notes
+						p Prev. Start: 
+							span  #{contender.prevStart}
+						p Earnings: 
+							span  #{contender.earnings}
+		.sliderButton.sliderButton--next 
+			i.fa.fa-chevron-right(aria-hidden="true")
+
+	//Javascript
+	//- MAKE SURE TO CHECK OUT package.json and look at the uglify script. 
+	script(src=datalink + "js/min/jquery-3.0.0.min.js")
+	script(src=datalink + "js/app.js")
+	//- script(src=datalink + "js/app.min.js")

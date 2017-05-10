@@ -5,7 +5,7 @@ var dataproject = {
 	mouseFuncs: function() {
 		var currSlide = 0;
 		$('.sliderButton--next').on('click', function(e){
-			var width = Math.floor($('.container').width() / 270);
+			var width = Math.floor($('.container').width() / 295);
 			if ((width + currSlide) > $('.contenders__card').length - 1) {
 				currSlide = 0;
 			} else {
