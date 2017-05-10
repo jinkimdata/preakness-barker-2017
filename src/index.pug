@@ -5,8 +5,8 @@
 //- There are two datalink variables so I don't have to rewrite the link every time. 
 //- The second datalink variable declaration overwrites the first one. 
 //- When I want to switch to my server assets, I comment out the second declaration.
-- var datalink = "http://data.baltimoresun.com/PROJECTLINK/"
-- var datalink = ""
+- var datalink = "http://data.baltimoresun.com/jin/p2p/preakness-2017"
+//- - var datalink = ""
 
 include includes/data.pug
 
@@ -26,46 +26,43 @@ html(class="no-js", lang="en")
 		meta(name="author", content="") 
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
 		link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Old+Standard+TT|Lato|Montserrat")
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
 		link(rel="stylesheet", type="text/css", href=datalink + "css/style.css")
 	body
 		.container
 			.contenders
-				for contender in data
-					.contenders__card
+				for contender, index in data
+					.contenders__card(class="contenders__card--"+index)
 						.contenders__card__detail.contenders__card__detail--namePlate
-							p
-								span.pp #{contender.pp}
-								span.horse #{contender.horse}
-						.contenders__card__detail.contenders__card__detail--jockey
-							p
-								span Jockey
-								span  #{contender.jockey}
+							p.pp 
+								span PP 
+								span.ppNum #{contender.pp}
+							p.horse
+								span #{contender.horse}
 						.contenders__card__detail.contenders__card__detail--odds
-							p
-								span Odds
-								span  #{contender.odds}
-							//- #{contender.oddsReturns}
-							//- p.notes #{contender.notes1} #{contender.notes2}
-						.contenders__card__detail.contenders__card__detail--prevStart
-							p
-								span Prev. Start
+							p.odds Odds
+							p.oddsNum #{contender.odds}
+						.contenders__card__detail.contenders__card__detail--bio
+							p.bioSubject Jockey
+							p.bioContent #{contender.jockey}
+							p.bioSubject Owner
+							p.bioContent #{contender.owner}
+							p.bioSubject Trainer
+							p.bioContent #{contender.trainer}
+							p.bioSubject Breeding
+							p.bioContent
+								span Dam: 
+								| #{contender.dam}
+							p.bioContent
+								span Sire: 
+								| #{contender.sire}
+						.contenders__card__detail.contenders__card__detail--notes
+							p Prev. Start: 
 								span  #{contender.prevStart}
-						.contenders__card__detail.contenders__card__detail--owner
-							p
-								span Owner
-								span  #{contender.owner}
-						.contenders__card__detail.contenders__card__detail--trainer
-							p
-								span Trainer
-								span  #{contender.trainer}
-						.contenders__card__detail.contenders__card__detail--breeding
-							p
-								span Breeding
-								span  #{contender.dam} #{contender.sire}
-						.contenders__card__detail.contenders__card__detail--earnings
-							p
-								span Earnings
+							p Earnings: 
 								span  #{contender.earnings}
+			.sliderButton.sliderButton--next 
+				i.fa.fa-chevron-right(aria-hidden="true")
 
 		//Javascript
 		//- MAKE SURE TO CHECK OUT package.json and look at the uglify script. 

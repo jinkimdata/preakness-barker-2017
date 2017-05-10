@@ -1,3 +1,29 @@
+var dataproject = {
+    init: function() {
+        dataproject.mouseFuncs();
+    },
+    mouseFuncs: function() {
+        var currSlide = 0;
+        $(".sliderButton--next").on("click", function(e) {
+            var width = Math.floor($(".container").width() / 270);
+            if (width + currSlide > $(".contenders__card").length - 1) {
+                currSlide = 0;
+            } else {
+                currSlide += width;
+            }
+            var nextPos = $(".contenders__card--" + currSlide).position().left - 12;
+            $(".container").animate({
+                scrollLeft: nextPos
+            }, 500);
+        });
+    }
+};
+
+$(document).ready(function() {
+    dataproject.init();
+    console.log("connected");
+});
+
 !function(a, b) {
     "use strict";
     "object" == typeof module && "object" == typeof module.exports ? module.exports = a.document ? b(a, !0) : function(a) {
@@ -2947,31 +2973,4 @@
     return r.noConflict = function(b) {
         return a.$ === r && (a.$ = Ub), b && a.jQuery === r && (a.jQuery = Tb), r;
     }, b || (a.jQuery = a.$ = r), r;
-});
-
-var dataproject = {
-    init: function() {},
-    share: function() {
-        $(".icon-twitter").on("click", function() {
-            var tweet = "";
-            var url = "";
-            var twitter_url = "https://twitter.com/intent/tweet?text=" + tweet + "&url=" + url + "&tw_p=tweetbutton";
-            window.open(twitter_url, "mywin", "left=200,top=200,width=500,height=300,toolbar=1,resizable=0");
-            return false;
-        });
-        $(".icon-facebook").on("click", function() {
-            var picture = "";
-            var title = "";
-            var description = "";
-            var url = "";
-            var facebook_url = "https://www.facebook.com/dialog/feed?display=popup&app_id=310302989040998&link=" + url + "&picture=" + picture + "&name=" + title + "&description=" + description + "&redirect_uri=http://www.facebook.com";
-            window.open(facebook_url, "mywin", "left=200,top=200,width=500,height=300,toolbar=1,resizable=0");
-            return false;
-        });
-    }
-};
-
-$(document).ready(function() {
-    dataproject.init();
-    console.log("connected");
 });
