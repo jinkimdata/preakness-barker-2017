@@ -461,11 +461,6 @@ th {
 .icon-facebook:before {
   content: "\e615"; }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden; }
-
 body {
   color: #1e1e1e;
   font-size: 12px; }
@@ -482,38 +477,38 @@ a {
 
 .container {
   position: relative;
-  width: 100%;
   height: 400px;
-  padding: 1em;
   background-color: #000;
   overflow: hidden;
   z-index: 2; }
-  .container:after {
+
+.contenders {
+  position: absolute;
+  width: 4000px;
+  height: 100%;
+  padding: 1em; }
+  .contenders:after {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
     background-image: url(http://data.baltimoresun.com/jin/p2p/preakness-2017/images/preakness.jpg);
-    opacity: .4; }
-
-.contenders {
-  position: relative;
-  width: 4000px;
-  height: 100%;
-  z-index: 2; }
+    background-repeat: repeat-x;
+    opacity: .4;
+    z-index: 1; }
   .contenders__card {
     position: relative;
     display: inline-block;
     width: 270px;
     height: 378px;
-    margin: 0 2em 0 0;
+    margin: 0 1em;
     background-color: #ffedbc;
     box-shadow: 4px 4px 1px #231F20;
     border-radius: 5px;
-    vertical-align: top; }
+    vertical-align: top;
+    z-index: 2; }
     .contenders__card--title {
       background-color: #231F20;
       background-size: cover; }
@@ -588,7 +583,7 @@ a {
         font-family: "Montserrat", sans-serif;
         text-transform: uppercase; }
       .contenders__card__detail--namePlate {
-        padding: .1em 0;
+        padding: .1em 0 .2em 0;
         margin: 0;
         font-size: 1.5em;
         text-transform: uppercase;
