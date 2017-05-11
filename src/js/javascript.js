@@ -6,12 +6,15 @@ var dataproject = {
 		var currSlide = 0;
 		$('.sliderButton--next').on('click', function(e){
 			var width = Math.floor($('.container').width() / 295);
+			if (width == 0) {
+				width = 1;
+			};
 			if ((width + currSlide) > $('.contenders__card').length - 1) {
 				currSlide = 0;
 			} else {
 				currSlide += width;
 			};
-			var nextPos = $('.contenders__card--'+currSlide).position().left - 12;
+			var nextPos = $('.contenders__card--'+currSlide).position().left;
 			$('.container').animate({scrollLeft: nextPos}, 500);
 		});
 	}
