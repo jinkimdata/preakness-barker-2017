@@ -53,14 +53,12 @@ a {
 		height: 378px;
 		margin: 0 1em;
 		background-color: lighten($pGold, 30);
-		box-shadow: 4px 4px 1px $pBlack;
+		border: 1px solid $pBlack;
 		border-radius: 5px;
+		box-shadow: 4px 4px 1px $pBlack;
 		vertical-align: top;
 		z-index: 2;
 		&--title {
-			// padding: 1em;
-			background-color: $pBlack;
-			background-size: cover;
 			&:after {
 				content: "";
 				position: absolute;
@@ -68,7 +66,7 @@ a {
 				height: 100%;
 				background-image: url(http://data.baltimoresun.com/jin/p2p/preakness-2017/images/title_display.jpg);
 				background-color: $pBlack;
-				box-shadow: inset 0 0 0 7px $pBlack;
+				box-shadow: inset 0 0 0 7px lighten($pGold, 30);
 				border-radius: 5px;
 				z-index: 0;
 			}

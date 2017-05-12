@@ -505,74 +505,72 @@ a {
     height: 378px;
     margin: 0 1em;
     background-color: #ffedbc;
-    box-shadow: 4px 4px 1px #231F20;
+    border: 1px solid #231F20;
     border-radius: 5px;
+    box-shadow: 4px 4px 1px #231F20;
     vertical-align: top;
     z-index: 2; }
-    .contenders__card--title {
+    .contenders__card--title:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url(http://data.baltimoresun.com/jin/p2p/preakness-2017/images/title_display.jpg);
       background-color: #231F20;
-      background-size: cover; }
-      .contenders__card--title:after {
-        content: "";
+      box-shadow: inset 0 0 0 7px #ffedbc;
+      border-radius: 5px;
+      z-index: 0; }
+    .contenders__card--title__detail {
+      z-index: 2; }
+      .contenders__card--title__detail--headline {
         position: absolute;
-        width: 100%;
+        left: 20px;
+        top: 0;
         height: 100%;
-        background-image: url(http://data.baltimoresun.com/jin/p2p/preakness-2017/images/title_display.jpg);
-        background-color: #231F20;
-        box-shadow: inset 0 0 0 7px #231F20;
-        border-radius: 5px;
-        z-index: 0; }
-      .contenders__card--title__detail {
-        z-index: 2; }
-        .contenders__card--title__detail--headline {
-          position: absolute;
-          left: 20px;
-          top: 0;
-          height: 100%;
-          background: rgba(35, 31, 32, 0.9);
+        background: rgba(35, 31, 32, 0.9);
+        color: #FFC423;
+        text-transform: uppercase;
+        text-align: center; }
+        .contenders__card--title__detail--headline h1 {
+          padding: .9em .4em;
+          line-height: 1.2em;
+          margin: 0;
+          font-family: "Cousine", "Lucida Console", Monaco, monospace;
+          font-size: 2.5em;
+          font-weight: bold; }
+          .contenders__card--title__detail--headline h1 span {
+            display: block;
+            text-shadow: 2px 2px 3px #EE2E24; }
+      .contenders__card--title__detail--subhead {
+        position: absolute;
+        bottom: 20px;
+        right: 0;
+        width: 100%;
+        padding: 1em;
+        background: rgba(35, 31, 32, 0.9);
+        z-index: 1; }
+        .contenders__card--title__detail--subhead h1 {
+          margin: 0 0 0 25%;
           color: #FFC423;
+          font-family: "Montserrat", sans-serif;
+          font-size: 2em;
+          font-weight: bold;
           text-transform: uppercase;
           text-align: center; }
-          .contenders__card--title__detail--headline h1 {
-            padding: .9em .4em;
-            line-height: 1.2em;
-            margin: 0;
-            font-family: "Cousine", "Lucida Console", Monaco, monospace;
-            font-size: 2.5em;
-            font-weight: bold; }
-            .contenders__card--title__detail--headline h1 span {
-              display: block;
-              text-shadow: 2px 2px 3px #EE2E24; }
-        .contenders__card--title__detail--subhead {
-          position: absolute;
-          bottom: 20px;
-          right: 0;
+          .contenders__card--title__detail--subhead h1 span {
+            display: block;
+            line-height: 1em; }
+            .contenders__card--title__detail--subhead h1 span:last-child {
+              font-size: 3em; }
+      .contenders__card--title__detail--logo {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 60%;
+        padding: .5em; }
+        .contenders__card--title__detail--logo img {
           width: 100%;
-          padding: 1em;
-          background: rgba(35, 31, 32, 0.9);
-          z-index: 1; }
-          .contenders__card--title__detail--subhead h1 {
-            margin: 0 0 0 25%;
-            color: #FFC423;
-            font-family: "Montserrat", sans-serif;
-            font-size: 2em;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center; }
-            .contenders__card--title__detail--subhead h1 span {
-              display: block;
-              line-height: 1em; }
-              .contenders__card--title__detail--subhead h1 span:last-child {
-                font-size: 3em; }
-        .contenders__card--title__detail--logo {
-          position: absolute;
-          top: 5px;
-          right: 5px;
-          width: 60%;
-          padding: .5em; }
-          .contenders__card--title__detail--logo img {
-            width: 100%;
-            margin: 0 auto; }
+          margin: 0 auto; }
     .contenders__card__detail {
       margin: .5em;
       padding: .3em;
