@@ -632,6 +632,8 @@ a {
           .contenders__card__detail--notes p span {
             color: #EE2E24;
             font-weight: bold; }
+    .contenders__card--10 .horse {
+      font-size: .8em; }
 
 .sliderButton {
   position: fixed;
