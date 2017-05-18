@@ -57,7 +57,7 @@ html {
 			background-color: lighten($pGold, 30);
 			border: 1px solid lightgray;
 			border-radius: 5px;
-			box-shadow: 4px 4px 6px darkgray;
+			box-shadow: 2px 2px 3px lightgray;
 			vertical-align: top;
 			z-index: 2;
 			&--title {
@@ -216,6 +216,11 @@ html {
 							font-weight: bold;
 						}
 					}
+				}
+			}
+			&--10 {
+				.horse {
+					font-size: .8em;
 				}
 			}
 		}
